@@ -1,8 +1,6 @@
 <template>
-  <div class="card">
-    {{ rank }}
-    {{ suit }}
-    <canvas id="rank+'of'+suit"></canvas>
+  <div class="card" :id="uuid">
+    <canvas class="face"></canvas>
   </div>
 </template>
 
@@ -10,26 +8,21 @@
 export default {
   name: 'card',
   props: [ 'rank', 'suit' ],
+  computed: {
+    uuid: {
+      cache: false,
+      get() {
+        return `${this.rank}of${this.suit}`;
+      },
+    },
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+.face {
+  width: 60px;
+  height: 110px;
 }
 </style>

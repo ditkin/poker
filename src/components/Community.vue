@@ -1,8 +1,8 @@
 <template>
   <div class="community">
-    {{ pot }}
-    <div id="communityGrid" v-for="activeCard in cards">
-      <card :suit="activeCard.suit" :rank="activeCard.rank"></card>
+    Pot: {{ pot }}
+    <card v-for="activeCard in cards" :suit="activeCard.suit" :rank="activeCard.rank">
+    </card>
     </div>
   </div>
 </template>
