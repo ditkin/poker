@@ -7,10 +7,12 @@
 <script>
 export default {
   name: 'card',
+
   props: [ 'rank', 'suit' ],
+
   computed: {
     uuid: {
-      cache: false,
+      cache: true,
       get() {
         return `${this.rank}of${this.suit}`;
       },
@@ -19,8 +21,8 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .face {
   width: 60px;
   height: 110px;
