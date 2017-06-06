@@ -32,8 +32,11 @@ export default {
   methods: {
     initDeck() {
       const allCards = this.suits.map(suit => {
-        return this.ranks.map(rank => ({ suit, rank }));
+        return this.ranks.map(rank => ({
+          suit, rank, id: `${rank}of${suit}`
+        }));
       }, this);
+
       const deck = [].concat.apply([], allCards);
       this.deck = this.shuffle(deck);
     },
@@ -43,6 +46,7 @@ export default {
       // for each card, swap it with a card at random index.
       deck.forEach( (card, idx) => {
         randomIdx = Math.floor(Math.random() * deck.length);
+        // fancy swap in one line of code
         [ deck[idx], deck[randomIdx] ] = [ deck[randomIdx], deck[idx] ];
       });
       return deck;

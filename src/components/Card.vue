@@ -8,15 +8,10 @@
 export default {
   name: 'card',
 
-  props: [ 'rank', 'suit' ],
+  props: [ 'rank', 'suit', 'uuid' ],
 
-  computed: {
-    uuid: {
-      cache: true,
-      get() {
-        return `${this.rank}of${this.suit}`;
-      },
-    },
+  mounted() {
+    console.log(this.$el);
   }
 }
 </script>
@@ -25,6 +20,9 @@ export default {
 
 .face {
   width: 60px;
-  height: 110px;
+  height: 90px;
+  background: lightgray;
+  border: 2px solid black;
+  border-radius: 6px;
 }
 </style>
